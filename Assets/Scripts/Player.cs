@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     // Variables de gravedad
     public float gravity = 9.8f;
     public float fallVelocity = 40;
+    public float jumpForce;
 
     // Variables de cámara
     public Camera mainCamera;
@@ -48,6 +49,8 @@ public class Player : MonoBehaviour
         // Aplica la gravedad
         SetGravity();
 
+        PlayerSkills();
+
         // Mueve al jugador
         player.Move(movePlayer * Time.deltaTime);
     }
@@ -73,5 +76,14 @@ public class Player : MonoBehaviour
             fallVelocity -= gravity * Time.deltaTime;
         }
         movePlayer.y = fallVelocity;
+    }
+
+    public void PlayerSkills()
+    {
+        if (player.isGrounded && Input.GetButtonDown("Jump"))
+        {
+            fallVelocity = jumpForce;
+            movePlayer.y = fallVelocity;
+        }
     }
 }
