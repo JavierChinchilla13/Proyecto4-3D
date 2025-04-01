@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public float horizontalMove;
     public float verticalMove;
     private Vector3 playerInput;
+    public Animator animator;
 
     public CharacterController player;
     public float playerSpeed;
@@ -31,6 +32,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         player = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -38,6 +40,8 @@ public class Player : MonoBehaviour
         // Obtiene el movimiento horizontal y vertical
         horizontalMove = Input.GetAxis("Horizontal");
         verticalMove = Input.GetAxis("Vertical");
+
+
         playerInput = new Vector3(horizontalMove, 0, verticalMove);
         playerInput = Vector3.ClampMagnitude(playerInput, 1);
 
@@ -55,6 +59,13 @@ public class Player : MonoBehaviour
         SetGravity();
 
         PlayerSkills();
+
+        //INDICA SI TOCA EL SUELO
+        animator.SetBool("IsGrounded", player.isGrounded);
+
+
+        //ENVIA VELOCIDAD AL ARBOL DE ANIMACION
+        animator.SetFloat("Velocity", player.velocity.magnitude);
 
         // Mueve al jugador
         player.Move(movePlayer * Time.deltaTime);
@@ -76,6 +87,7 @@ public class Player : MonoBehaviour
         {
             fallVelocity = jumpForce;
             movePlayer.y = fallVelocity;
+            animator.SetTrigger("");
         }
     }
 

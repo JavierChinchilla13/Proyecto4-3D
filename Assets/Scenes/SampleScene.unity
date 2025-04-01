@@ -2743,6 +2743,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: b2ea3aa39a686f541918af5b06aaaf37, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d1b850dc3321ab2439b4bdca18c0f351, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2ea3aa39a686f541918af5b06aaaf37, type: 3}
 --- !u!1 &1119006620 stripped
@@ -2809,6 +2813,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalMove: 0
   verticalMove: 0
+  animator: {fileID: 0}
   player: {fileID: 1271021079}
   playerSpeed: 6
   gravity: 9.8
@@ -3132,6 +3137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalMove: 0
   verticalMove: 0
+  animator: {fileID: 0}
   player: {fileID: 1271021079}
   playerSpeed: 6
   gravity: 9.8
@@ -54958,6 +54964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalMove: 0
   verticalMove: 0
+  animator: {fileID: 0}
   player: {fileID: 1856094080}
   playerSpeed: 6
   gravity: 9.8
