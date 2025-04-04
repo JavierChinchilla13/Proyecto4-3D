@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
         {
             fallVelocity = jumpForce;
             movePlayer.y = fallVelocity;
-            animator.SetTrigger("");
+            animator.SetTrigger("Jump");
         }
     }
 
